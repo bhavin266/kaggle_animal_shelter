@@ -1,0 +1,117 @@
+OutcomeType
+0:Return_to_owner
+1:Euthanasia
+2:Adoption
+3:Transfer
+4:Died
+***************
+AnimalType
+0:Dog
+1:Cat
+***************
+SexType
+0:Male
+1:Female
+2:Unknown
+***************
+Quality
+0:Neutered
+1:Spayed
+2:Intact
+3:Unknown
+***************
+Name
+0:Known
+1:Unknown
+***************
+LifeStage
+0:Old
+1:Young
+***************
+DayPeriod
+0:Morning
+1:AfterNoon
+2:Night
+***************
+HairType
+0:Unknown
+1:Shorthair
+2:Flat Coat
+3:Smooth
+4:Longhair
+5:Medium Hair
+6:Wirehair
+7:Black/Tan
+8:Rough
+9:Coat
+10:Smooth Coat
+***************
+BreedGroup
+0:Herding
+1:Unknown
+2:Non-Sporting
+3:Terrier
+4:Toy
+5:Working
+6:Sporting
+7:Hound
+***************
+ColorType
+0:Brown
+1:Cream Tabby
+2:Blue
+3:Blue Cream
+4:Tan
+5:Black
+6:Blue Tabby
+7:Brown Tabby
+8:Red
+9:White
+10:Silver
+11:Orange Tabby
+12:Brown Brindle
+13:Chocolate
+14:Calico
+15:Torbie
+16:Yellow
+17:Tricolor
+18:Tortie
+19:Gray
+20:Buff
+21:Seal Point
+22:Yellow Brindle
+23:Fawn
+24:Flame Point
+25:Black Tabby
+26:Red Tick
+27:Blue Merle
+28:Sable
+29:Brown Merle
+30:Brown Tiger
+31:Liver
+32:Cream
+33:Blue Point
+34:Apricot
+35:Red Merle
+36:Lynx Point
+37:Lilac Point
+38:Tortie Point
+39:Gray Tabby
+40:Blue Tiger
+41:Gold
+42:Blue Tick
+43:Black Smoke
+44:Calico Point
+45:Black Brindle
+46:Silver Tabby
+47:Orange
+48:Chocolate Point
+49:Agouti
+50:Blue Smoke
+51:Liver Tick
+52:Pink
+53:Silver Lynx Point
+54:Ruddy
+55:Black Tiger
+56:Orange Tiger
+***************
