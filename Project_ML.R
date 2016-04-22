@@ -75,44 +75,48 @@ for (i in 1:length(mydata$Name)) {
     mydata$Name[i] <- "Nameless"
   }
 }
-
+library(randomForest)
 
 #Factor Variables
-mydata$AgeuponOutcome <- as.numeric(mydata$AgeuponOutcome)
-mydata$AgeuponOutcome <- na.roughfix(mydata$AgeuponOutcome)
-mydata$AgeuponOutcome <- factor(mydata$AgeuponOutcome)
+AUO <- as.numeric(mydata$AgeuponOutcome)
+AUO <- na.roughfix(AUO)
+AUO <- factor(AUO)
 
-mydata$AnimalType <- factor(mydata$AnimalType)
-mydata$Breed <- factor(mydata$Breed)
-mydata$Color <- factor(mydata$Color)
-mydata$OutcomeType <- factor(mydata$OutcomeType)
-mydata$SexuponOutcome <- factor(mydata$SexuponOutcome)
-mydata$Name <- factor(mydata$Name)
+AT <- factor(mydata$AnimalType)
+B <- factor(mydata$Breed)
+C <- factor(mydata$Color)
+OT <- factor(mydata$OutcomeType)
+SUO <- factor(mydata$SexuponOutcome)
+N <- factor(mydata$Name)
 
 hour <- factor(hour)
 month <- factor(hour)
 day <- factor(day)
 year <- factor(year)
-train <-
+
+training_data <-
   data.frame(
-   
-    OutcomeType = mydata$OutcomeType,
-    AgeuponOutcome = mydata$AgeuponOutcome,
-    AnimalType = mydata$AnimalType,
-    Color = mydata$Color,
-    SexuponOutcome = mydata$SexuponOutcome,
-    Name = mydata$Name,
+    OutcomeType = OT,
+    AgeuponOutcome = AUO,
+    AnimalType = AT,
+    Color = C,
+    SexuponOutcome = SUO,
+    Name = N,
     hour = hour,
     month = month,
     day = day,
     year = year
   )
 
+
+train <- training_data[1:21000, ]
+test  <- training_data[21001:26729, ]
+
 #train <- x[1:21000, ]
 #test_data <- x[21001:26729, ]
 
 #Create Random Forest
-library(randomForest)
+
 rf <-
   randomForest(
     train$OutcomeType ~ train$AgeuponOutcome + train$AnimalType + train$Color +
@@ -120,6 +124,6 @@ rf <-
     ntree = 600,
     importance = TRUE
   )
-#prediction <- predict(rf, test,predict.all = TRUE)
-#solution <- data.frame( prediction)
-#write.csv(solution, 'rf_solution.csv', row.names = F)
+prediction <- predict(rf, newdata = test)
+solution <- data.frame(prediction)
+write.csv(solution, 'rf_solution.csv', row.names = F)
