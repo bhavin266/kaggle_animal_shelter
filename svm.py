@@ -16,14 +16,14 @@ def generate_train_Y(dataframe):
         list(row[-1])
         train_Y.extend(list(row[-1]))
 
-def perform_naivebase(train_X, train_Y, dataframe_test, dataframe_test_modeloutput):
+def perform_svm(train_X, train_Y, dataframe_test, dataframe_test_modeloutput):
     predict_list = []
     actual_list = []
     total_correct = 0
     X = np.array(train_X).astype(np.float)
     Y = np.array(train_Y).astype(np.float)
     X.reshape(len(X), 5)
-    clf = svm.SVC(decision_function_shape='ovo' )
+    clf = svm.SVC(kernel='poly',degree=2)
     clf.fit(X, Y)
     for index in dataframe_test.iterrows():
         #print(index[-1])
@@ -55,6 +55,6 @@ def main():
     dataframe_test_modeloutput = dataframe_test[['OutcomeType']]
     dataframe_test_modeloutput = dataframe_test_modeloutput.fillna(-1)
     dataframe_test_1 = dataframe_test_1.fillna(-1)
-    perform_naivebase(train_X, train_Y, dataframe_test_1, dataframe_test_modeloutput)
+    perform_svm(train_X, train_Y, dataframe_test_1, dataframe_test_modeloutput)
 
 main()

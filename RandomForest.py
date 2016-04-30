@@ -4,7 +4,7 @@ from io import StringIO
 import pandas as pd
 
 training_data = pd.read_csv("training_animals_normalized.csv")
-training_data = training_data[['OutcomeType','AnimalType','AgeuponOutcome','Breed','Mix','Color','Sex','Quality']]
+training_data = training_data[['OutcomeType','AnimalType','AgeuponOutcome','Breed','Color','Sex','Quality']]
 y_train = []
 x_train = []
 for row in training_data.iterrows():
@@ -14,7 +14,7 @@ for row in training_data.iterrows():
 	y_train.append(li[0])
 
 testing_data = pd.read_csv("testing_animals_normalized.csv")
-testing_data = testing_data[['OutcomeType','AnimalType','AgeuponOutcome','Breed','Mix','Color','Sex','Quality']]
+testing_data = testing_data[['OutcomeType','AnimalType','AgeuponOutcome','Breed','Color','Sex','Quality']]
 y_test = []
 x_test = []
 for row in testing_data.iterrows():
@@ -26,7 +26,7 @@ for row in testing_data.iterrows():
 right_count = 0
 wrong_count = 0
 
-clf = RandomForestClassifier(n_estimators=10)
+clf = RandomForestClassifier(n_estimators=600)
 clf = clf.fit(x_train, y_train)
 for i in range(len(y_test)):
     prediction = clf.predict([x_test[i]])[0]
